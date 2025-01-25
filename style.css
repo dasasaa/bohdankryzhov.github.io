@@ -35,235 +35,74 @@ font-family: sans-serif;
 
 }
 
-a{
+@import url('https://fonts.googleapis.com/css?family=Space%20Grotesk:700|Space%20Grotesk:400');
 
-position: absolute;
-
-top: 50%;
-
-left: 50%;
-
-transform: translate(-50%,-50%);
-
-color:#1670f0;
-
-padding:30px;
-
-letter-spacing:2px;
-
-text-transform:uppercase;
-
-text-decoration:none;
-
-box-shadow:0 20px 50px rgba(0,0,0,.5);
-
-overflow:hidden;
-
+:root {
+/*  change this for scaling  */
+  --m: 4rem;
+  
+  --red: #FF6565;
+  --pink: #FF64F9;
+  --purple: #6B5FFF;
+  --blue: #4D8AFF;
+  --green: #5BFF89;
+  --yellow: #FFEE55;
+  --orange: #FF6D1B;
+  
+}
+body {
+  background-color: #141516;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
 }
 
-a:before
-
-{
-
-content: '';
-
-position: absolute;
-
-top: 2px;
-
-left: 2px;
-
-bottom: 2px;
-
-width: 50%;
-
-background: rgba(255,255,255,0.05);
-
+button {
+  border: calc(0.08 * var(--m)) solid transparent;
+  position: relative;
+  color: #F3F3F3;
+  font-family: 'Space Grotesk';
+  font-size: var(--m);
+  border-radius: calc(0.7 * var(--m));
+  padding: calc(0.5 * var(--m)) calc(1 * var(--m));
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  
+  background:linear-gradient(#121213, #121213), linear-gradient(#121213 50%, rgba(18, 18, 19, 0.6) 80%, rgba(18, 18, 19, 0)),  linear-gradient(90deg, var(--orange), var(--yellow), var(--green), var(--blue), var(--purple), var(--pink), var(--red));
+  background-origin: border-box;
+  background-clip: padding-box, border-box, border-box;
+  background-size: 200%;
+  animation: animate 2s infinite linear;
 }
 
-a span:nth-child(1)
-
-{
-
-position: absolute;
-
-top: 0;
-
-left: 0;
-
-width: 100%;
-
-height: 2px;
-
-background: linear-gradient(to right,#0c002b,#1779ff);
-
-animation: animate1 2s linear infinite;
-
+button::before {
+  content: '';
+  background: linear-gradient(90deg, var(--orange), var(--yellow), var(--green), var(--blue), var(--purple), var(--pink), var(--red));
+  height: 30%;
+  width: 60%;
+  position: absolute;
+  bottom: -20%;
+  z-index: -5;
+  background-size: 200%;
+  animation: animate 2s infinite linear;
+  filter: blur(calc(0.8 * var(--m)));
 }
 
-@keyframes animate1
-
-{
-
- 0%
-
- {
-
-   transform:translateX(-100%);
-
- 
-
- }
-
- 100%
-
- {
-
-   transform:translateX(100%);
-
- 
-
- }
-
+button:hover, button:hover::before {
+  animation: animate 0.5s infinite linear;
 }
 
-a span:nth-child(2)
-
-{
-
-position: absolute;
-
-top: 0;
-
-right: 0;
-
-width: 2px;
-
-height: 100%;
-
-background: linear-gradient(to bottom,#0c002b,#1779ff);
-
-animation: animate2 2s linear infinite;
-
-animation-delay: 1s;
-
+@keyframes animate {
+  0% {background-position: 0}
+  100% {background-position: 200%}
 }
 
-@keyframes animate2 
-
-{
-
- 0%
-
- {
-
-   transform:translateY(-100%);
-
- 
-
- }
-
- 100%
-
- {
-
-   transform:translateY(100%);
-
- 
-
- }
-
+@media screen and (max-width: 1000px) {
+  :root {
+    --m: 2rem;
+  }
 }
-
-a span:nth-child(3)
-
-{
-
-position: absolute;
-
-bottom: 0;
-
-left: 0;
-
-width: 100%;
-
-height: 2px;
-
-background: linear-gradient(to left,#0c002b,#1779ff);
-
-animation: animate3 2s linear infinite;
-
-}
-
-@keyframes animate3
-
-{
-
- 0%
-
- {
-
-   transform:translateX(100%);
-
- 
-
- }
-
- 100%
-
- {
-
-   transform:translateX(-100%);
-
- 
-
- }
-
-}
-
-a span:nth-child(4)
-
-{
-
-position: absolute;
-
-top: 0;
-
-left: 0;
-
-width: 2px;
-
-height: 100%;
-
-background: linear-gradient(to top,#0c002b,#1779ff);
-
-animation: animate4 2s linear infinite;
-
-animation-delay: 1s;
-
-}
-
-@keyframes animate4 
-
-{
-
- 0%
-
- {
-
-   transform:translateY(100%);
-
- 
-
- }
-
- 100%
-
- {
-
-   transform:translateY(-100%);
-
- 
-
- }
-
